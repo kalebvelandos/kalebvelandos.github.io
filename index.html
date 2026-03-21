@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaleb Velandos | Performance & Movement Science</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --bg-color: #0d1b1e;      
@@ -32,15 +33,25 @@
         .hero-title { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: 5px; }
         .hero-subtitle { color: var(--accent-color); font-weight: 700; font-size: 1rem; letter-spacing: 3px; margin-top: 10px; text-transform: uppercase; }
 
+        .social-bar { display: flex; justify-content: center; gap: 30px; margin-top: 25px; font-size: 1.8rem; }
+        .social-bar a { color: var(--text-dim); transition: 0.3s; }
+        .social-bar a:hover { color: var(--accent-color); transform: scale(1.2); }
+
         .section-title { border-left: 4px solid var(--accent-color); padding-left: 20px; margin: 60px 0 30px; text-transform: uppercase; letter-spacing: 2px; font-size: 1.8rem; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .card { background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid var(--border-color); transition: 0.3s; }
         .card h3 { color: var(--accent-color); margin-top: 0; text-transform: uppercase; font-size: 1.2rem; }
         
-        .media-widget { border-radius: 12px; overflow: hidden; background: #000; margin-top: 20px; border: 1px solid var(--border-color); }
-        
-        .btn { background: var(--accent-color); color: var(--bg-color); padding: 14px 30px; text-decoration: none; border-radius: 50px; font-weight: 700; display: inline-block; text-transform: uppercase; font-size: 0.9rem; margin-top: 15px; transition: 0.3s; cursor: pointer; border: none; }
+        /* PODCAST CARD CON IMAGEN */
+        .media-card { 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('podcastcaptura.png');
+            background-size: cover; background-position: center;
+            padding: 60px 40px; border-radius: 15px; border: 1px solid var(--border-color);
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+        }
+
+        .btn { background: var(--accent-color); color: var(--bg-color); padding: 16px 35px; text-decoration: none; border-radius: 50px; font-weight: 700; display: inline-block; text-transform: uppercase; font-size: 0.9rem; margin-top: 15px; transition: 0.3s; border: none; cursor: pointer; }
         .btn:hover { filter: brightness(1.2); box-shadow: 0 0 20px rgba(79,172,157,0.3); }
 
         .footer { text-align: center; padding: 60px; color: var(--text-dim); font-size: 0.8rem; border-top: 1px solid var(--border-color); margin-top: 100px; }
@@ -52,40 +63,46 @@
         <img src="logo.jpg.png" alt="Kaleb Velandos Logo" class="logo-img">
         <h1 class="hero-title">Kaleb Velandos</h1>
         <p class="hero-subtitle">Movement Science | Injury Prevention | Combat Sports Nutrition</p>
-        <a href="#booking" class="btn">Get Started</a>
+        
+        <div class="social-bar">
+            <a href="https://www.instagram.com/kalebvelandos/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@kalebvelandos" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://cr.linkedin.com/in/kaleb-velandos-78b0b4361/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+
+        <a href="#booking" class="btn" style="margin-top: 40px;">Book a Consultation</a>
     </header>
 
     <div class="container">
         
-        <h2 class="section-title">Areas of Expertise</h2>
+        <h2 class="section-title">Professional Focus</h2>
         <div class="grid">
             <div class="card">
                 <h3>Combat Sports Nutrition</h3>
-                <p>Strategic fueling and weight management protocols for BJJ and Boxing. Maximize power-to-weight ratio and optimize recovery.</p>
+                <p>Weight-class management and performance fueling for BJJ and Boxing athletes.</p>
                 <a href="#booking" class="btn">Inquire</a>
             </div>
             <div class="card">
                 <h3>Injury Prevention</h3>
-                <p>Advanced biomechanical screening and corrective programming to build a resilient, high-performance body for competition.</p>
+                <p>Biomechanical assessments to build a resilient and high-output athletic body.</p>
                 <a href="#booking" class="btn">Inquire</a>
             </div>
             <div class="card">
-                <h3>Longevity & Aging</h3>
-                <p>Through <strong>Fuerza Longeva™</strong>, we apply resistance training science to restore independence and vitality in older populations.</p>
+                <h3>Fuerza Longeva™</h3>
+                <p>Evidence-based resistance training protocols for vitality and independence in seniors.</p>
                 <a href="#booking" class="btn">Learn More</a>
             </div>
         </div>
 
-        <h2 class="section-title">Featured Media</h2>
-        <p>Listen to my guest appearance discussing <strong>Exercise, Hormones, and Evidence-Based Performance</strong>.</p>
-        <div class="media-widget">
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/5X30jR2kRzWf7j2C3f4g5h?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <h2 class="section-title">Featured Content</h2>
+        <div class="media-card">
+            <h3 style="color: var(--accent-color); text-transform: uppercase;">Exercise & Hormones</h3>
+            <p style="max-width: 600px;">Listen to my technical analysis on physiological performance as a guest expert.</p>
+            <a href="https://open.spotify.com/episode/5Zp9R7lXG6Xm0yXJ2X" target="_blank" class="btn" style="background:#1DB954; color:white;"><i class="fab fa-spotify"></i> Listen on Spotify</a>
         </div>
 
         <section id="booking">
             <h2 class="section-title">Schedule a Consultation</h2>
-            <p>Select a time for a 30-minute discovery call regarding 1-on-1 coaching or B2B performance management.</p>
-            
             <div class="calendly-inline-widget" data-url="https://calendly.com/contact-kalebvelandos/30min" style="min-width:320px;height:700px;"></div>
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </section>
@@ -93,8 +110,8 @@
     </div>
 
     <div class="footer">
-        © 2026 Kaleb Velandos. All Rights Reserved. <br>
-        Built with Evidence-Based Biomechanics.
+        © 2026 Kaleb Velandos. <br>
+        Movement Science & Evidence-Based Performance.
     </div>
 
 </body>
