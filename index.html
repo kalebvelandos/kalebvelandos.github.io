@@ -3,140 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaleb Velandos | Biomechanics & Performance</title>
+    <title>Kaleb Velandos | Performance & Movement Science</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* PALETA EXTRAÍDA DE TU LOGO */
-            --bg-color: #0d1b1e;      /* Negro azulado muy oscuro (el color de los bordes del logo) */
-            --card-bg: #142629;       /* Fondo de tarjetas sutil */
-            --accent-color: #4fac9d;  /* Verde Menta/Teal (el color de la manzana y los detalles claros) */
-            --text-main: #ffffff;     /* Blanco para lectura */
-            --text-dim: #b0c4c2;      /* Gris verdoso para texto secundario */
-            --border-color: #2a4d4a;  /* Verde oscuro para bordes */
+            --bg-color: #0d1b1e;      
+            --card-bg: #142629;       
+            --accent-color: #4fac9d;  
+            --text-main: #ffffff;     
+            --text-dim: #b0c4c2;      
+            --border-color: #2a4d4a;  
         }
 
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; scroll-behavior: smooth; }
+        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        
+        header { 
+            height: 75vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            background: linear-gradient(180deg, rgba(13,27,30,1) 0%, rgba(79,172,157,0.15) 100%); 
+            border-bottom: 3px solid var(--accent-color); 
         }
 
-        header {
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(180deg, rgba(13,27,30,1) 0%, rgba(79,172,157,0.1) 100%);
-            border-bottom: 3px solid var(--accent-color);
-        }
+        .logo-img { width: 160px; height: auto; margin-bottom: 25px; border-radius: 12px; }
+        .hero-title { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: 4px; }
+        .hero-subtitle { color: var(--accent-color); font-weight: 700; font-size: 1.1rem; letter-spacing: 2px; margin-top: 10px; margin-bottom: 30px; text-transform: uppercase; max-width: 800px; line-height: 1.4; }
 
-        .hero-title { 
-            font-size: 3.5rem; 
-            margin-bottom: 5px; 
-            text-transform: uppercase; 
-            letter-spacing: 3px; 
-            color: #ffffff;
-        }
-        .hero-subtitle { 
-            color: var(--accent-color); 
-            font-weight: 700; 
-            font-size: 1.2rem; 
-            letter-spacing: 2px;
-        }
+        .section-title { border-left: 5px solid var(--accent-color); padding-left: 20px; margin: 60px 0 30px; text-transform: uppercase; letter-spacing: 1px; font-size: 1.6rem; }
+        
+        .media-widget { border-radius: 12px; overflow: hidden; background: #000; border: 1px solid var(--border-color); margin-bottom: 40px; }
+        
+        .btn { background: var(--accent-color); color: var(--bg-color); padding: 18px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; display: inline-block; text-transform: uppercase; border: none; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(79, 172, 157, 0.2); }
+        .btn:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-        .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
-
-        .section-title { 
-            border-left: 5px solid var(--accent-color); 
-            padding-left: 20px; 
-            margin-bottom: 40px; 
-            text-transform: uppercase; 
-            letter-spacing: 1px;
-        }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-
-        .card { 
-            background: var(--card-bg); 
-            padding: 35px; 
-            border-radius: 12px; 
-            border: 1px solid var(--border-color);
-            transition: 0.3s ease;
-        }
-        .card:hover { 
-            border-color: var(--accent-color); 
-            transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(79,172,157,0.15);
-        }
-
-        .btn {
-            background: var(--accent-color);
-            color: var(--bg-color); /* Texto oscuro sobre fondo claro para contraste */
-            padding: 18px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            display: inline-block;
-            margin-top: 30px;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            filter: brightness(1.1);
-            transform: scale(1.05);
-        }
-
-        .contact-email { 
-            font-size: 2rem; 
-            color: var(--accent-color); 
-            font-weight: 700; 
-            margin-top: 20px;
-        }
-
-        .footer { text-align: center; padding: 60px; color: var(--text-dim); border-top: 1px solid var(--border-color); }
+        .footer { text-align: center; padding: 50px; color: var(--text-dim); font-size: 0.8rem; border-top: 1px solid var(--border-color); margin-top: 80px; }
     </style>
 </head>
 <body>
 
     <header>
+        <img src="logo.jpg.png" alt="Kaleb Velandos Logo" class="logo-img">
         <h1 class="hero-title">Kaleb Velandos</h1>
-       <p class="hero-subtitle">MOVEMENT SCIENCE | BIOMECHANICS | COMBAT SPORTS NUTRITION</p>
-        <a href="mailto:contact@kalebvelandos.fit" class="btn">Book a Consultation</a>
+        <p class="hero-subtitle">Movement Science | Injury Prevention | Combat Sports Nutrition</p>
+        <a href="#booking" class="btn">Book a Session</a>
     </header>
 
     <div class="container">
-        <section id="services">
-            <h2 class="section-title">Clinical Performance Services</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>B2B Programming</h3>
-                    <p>Evidence-based routine prescription for premium fitness centers looking for scientific member results.</p>
-                </div>
-                <div class="card">
-                    <h3>Concierge Coaching</h3>
-                    <p>Exclusive online training integrating clinical biomechanics and progressive hypertrophy.</p>
-                </div>
-                <div class="card">
-                    <h3>Specialized Protocols</h3>
-                    <p>Longevity programs for seniors and injury prevention for high-performance athletes.</p>
-                </div>
+        
+        <section id="media">
+            <h2 class="section-title">Educational Insights</h2>
+            <p>Análisis técnico sobre biomecánica, fisiología aplicada y nutrición para el rendimiento.</p>
+            <div class="media-widget">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/7v3C6V5N9C1T8J1X4Y0Z2W" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
         </section>
 
-        <section id="contact" style="text-align: center; margin-top: 100px;">
-            <h2 class="section-title" style="border:none; padding:0;">Contact</h2>
-            <p>Ready to integrate science into your training facility?</p>
-            <div class="contact-email">contact@kalebvelandos.fit</div>
+        <section id="booking">
+            <h2 class="section-title">Schedule a Consultation</h2>
+            <p>Agenda una sesión de 30 minutos para consultoría personalizada o servicios B2B.</p>
+            
+            <div class="calendly-inline-widget" data-url="https://calendly.com/contact-kalebvelandos/30min" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </section>
+
     </div>
 
     <div class="footer">
-        &copy; 2026 Kaleb Velandos. Built with Biomechanical Integrity.
+        © 2026 Kaleb Velandos. Built with Evidence-Based Science.
     </div>
 
 </body>
