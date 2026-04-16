@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,38 +9,28 @@
     <style>
         /* PALETA DE COLORES OFICIAL */
         :root {
-            --brand-dark: #1B4E51;
-            --brand-medium: #6D948F;
-            --brand-light: #C9DCD8;
-            --brand-accent: #8CCEB1;
-            --white: #FEFEFE;
+            --brand-dark: #1B4E51;    /* Fondo principal */
+            --brand-medium: #6D948F;  /* Tarjetas y detalles */
+            --brand-light: #C9DCD8;   /* Texto secundario */
+            --brand-accent: #8CCEB1;  /* Botones y acentos */
+            --white: #FEFEFE;         /* */
+            
+            --bg-color: var(--brand-dark);
             --card-bg: rgba(109, 148, 143, 0.2);
             --border-color: rgba(201, 220, 216, 0.2);
         }
 
-        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--brand-dark); color: var(--white); line-height: 1.6; scroll-behavior: smooth; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--white); line-height: 1.6; scroll-behavior: smooth; }
         .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
         
-        /* SELECTOR DE IDIOMA */
-        .lang-en { display: none; }
-        .language-switcher {
-            position: fixed; top: 20px; right: 20px; z-index: 1000;
-            background: var(--brand-medium); padding: 5px; border-radius: 30px;
-            display: flex; gap: 5px; border: 1px solid var(--brand-accent);
-        }
-        .lang-btn {
-            background: none; border: none; color: var(--white); padding: 8px 15px;
-            cursor: pointer; border-radius: 20px; font-weight: bold; font-size: 0.8rem; transition: 0.3s;
-        }
-        .lang-btn.active { background: var(--brand-accent); color: var(--brand-dark); }
-
         header { 
-            height: 75vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; 
+            height: 75vh; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; 
             background: linear-gradient(180deg, var(--brand-dark) 0%, rgba(140, 206, 177, 0.1) 100%); 
             border-bottom: 2px solid var(--border-color);
         }
         .logo-img { width: 140px; height: auto; margin-bottom: 20px; border-radius: 8px; border: 1px solid var(--border-color); }
-        .hero-title { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: 5px; }
+        .hero-title { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: 5px; color: var(--white); }
         .hero-subtitle { color: var(--brand-accent); font-weight: 700; font-size: 1rem; letter-spacing: 3px; margin-top: 10px; text-transform: uppercase; }
 
         .social-bar { display: flex; justify-content: center; gap: 30px; margin-top: 25px; font-size: 1.8rem; }
@@ -49,124 +39,144 @@
 
         .section-title { border-left: 4px solid var(--brand-accent); padding-left: 20px; margin: 60px 0 30px; text-transform: uppercase; letter-spacing: 2px; font-size: 1.8rem; color: var(--brand-light); }
         
-        /* GRID PARA VIDEOS VERTICALES */
-        .split-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: center; gap: 40px; margin-bottom: 60px; }
-        .video-vertical-wrapper { width: 100%; max-width: 280px; border-radius: 20px; overflow: hidden; border: 2px solid var(--brand-accent); box-shadow: 0 0 20px rgba(140, 206, 177, 0.2); aspect-ratio: 9/16; }
-        .content-card { background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid var(--border-color); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid var(--border-color); transition: 0.3s; }
+        .card:hover { border-color: var(--brand-accent); background: rgba(109, 148, 143, 0.3); }
+        .card h3 { color: var(--brand-accent); margin-top: 0; text-transform: uppercase; font-size: 1.2rem; }
 
-        /* TESTIMONIOS */
+        /* ESTILO TESTIMONIOS CON IMÁGENES ACTUALIZADAS */
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .testimonial-card { background: rgba(0,0,0,0.2); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); display: flex; flex-direction: column; }
         .test-image-container { width: 100%; height: 280px; overflow: hidden; }
         .test-image { width: 100%; height: 100%; object-fit: cover; }
-        .test-content { padding: 25px; font-size: 0.95rem; flex-grow: 1; }
-        .test-footer { background: var(--brand-medium); padding: 15px 25px; font-weight: bold; font-style: italic; }
+        .test-content { padding: 25px; font-size: 0.95rem; color: var(--white); flex-grow: 1; }
+        .test-footer { background: var(--brand-medium); padding: 15px 25px; color: var(--white); font-weight: bold; font-style: italic; }
 
-        .btn { background: var(--brand-accent); color: var(--brand-dark); padding: 16px 35px; text-decoration: none; border-radius: 50px; font-weight: 700; display: inline-block; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; border: none; cursor: pointer; }
+        /* VIDEOS VERTICALES 9:16 */
+        .video-vertical-wrapper {
+            width: 100%; 
+            max-width: 280px; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            border: 2px solid var(--brand-accent); 
+            box-shadow: 0 0 20px rgba(140, 206, 177, 0.2); 
+            aspect-ratio: 9/16;
+        }
+
+        /* PODCAST HORIZONTAL */
+        .podcast-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+        .video-container-horizontal {
+            position: relative;
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #000;
+            margin-bottom: 30px;
+        }
+        .video-container-horizontal iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%; border: none;
+        }
+
+        .btn { background: var(--brand-accent); color: var(--brand-dark); padding: 16px 35px; text-decoration: none; border-radius: 50px; font-weight: 700; display: inline-block; text-transform: uppercase; font-size: 0.9rem; margin-top: 15px; transition: 0.3s; border: none; cursor: pointer; }
+        .btn:hover { filter: brightness(1.1); box-shadow: 0 0 20px rgba(140, 206, 177, 0.3); }
+
         .footer { text-align: center; padding: 60px; color: var(--brand-light); font-size: 0.8rem; border-top: 1px solid var(--border-color); margin-top: 100px; }
     </style>
 </head>
 <body>
 
-<div class="language-switcher">
-    <button class="lang-btn active" onclick="setLanguage('es')">ES</button>
-    <button class="lang-btn" onclick="setLanguage('en')">EN</button>
-</div>
-
 <header>
-    <img src="logo.jpg.png" alt="Logo" class="logo-img">
+    <img src="logo.jpg.png" alt="Kaleb Velandos Logo" class="logo-img">
     <h1 class="hero-title">Kaleb Velandos</h1>
-    <p class="hero-subtitle">
-        <span class="lang-es">Ciencia del Movimiento | Rendimiento en Combate</span>
-        <span class="lang-en">Movement Science | Combat Performance</span>
-    </p>
+    <p class="hero-subtitle">Movement Science | Injury Prevention | Combat Performance</p>
+    
     <div class="social-bar">
         <a href="https://www.instagram.com/kalebvelandos/" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://youtube.com/@kalebvelandos" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://cr.linkedin.com/in/kaleb-velandos-78b0b4361/" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="mailto:contact@kalebvelandos.fit"><i class="fas fa-envelope"></i></a>
     </div>
+
+    <a href="#booking" class="btn" style="margin-top: 40px;">Book a Consultation</a>
 </header>
 
 <div class="container">
 
-    <h2 class="section-title">
-        <span class="lang-es">Experiencia Fuerza Longeva™</span>
-        <span class="lang-en">Fuerza Longeva™ Experience</span>
-    </h2>
-    <div class="split-grid">
+    <h2 class="section-title">Fuerza Longeva™ Experience</h2>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: center; gap: 40px;">
         <div style="display: flex; justify-content: center;">
             <div class="video-vertical-wrapper">
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Z_9koe5MLJU" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
-        <div class="content-card">
-            <h3 style="color: var(--brand-accent); text-transform: uppercase;">
-                <span class="lang-es">Ciencia aplicada a la madurez</span>
-                <span class="lang-en">Science applied to longevity</span>
-            </h3>
-            <p>
-                <span class="lang-es">Protocolos diseñados para revertir la pérdida de masa muscular y mejorar la independencia física en adultos mayores.</span>
-                <span class="lang-en">Protocols designed to reverse muscle loss and improve physical independence in older adults.</span>
-            </p>
+        <div class="card" style="background: none; border: none; padding: 0;">
+            <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Ciencia aplicada a la madurez</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 20px;">Utilizamos entrenamiento de resistencia para revertir la pérdida de masa muscular y mejorar la calidad de vida.</p>
+            <ul style="color: var(--brand-light); list-style: none; padding: 0; line-height: 2;">
+                <li><i class="fas fa-check-circle" style="color: var(--brand-accent);"></i> Combate directo a la sarcopenia.</li>
+                <li><i class="fas fa-check-circle" style="color: var(--brand-accent);"></i> Mejora drástica de la movilidad funcional.</li>
+                <li><i class="fas fa-check-circle" style="color: var(--brand-accent);"></i> Supervisión técnica por especialistas.</li>
+            </ul>
         </div>
     </div>
 
-    <h2 class="section-title">
-        <span class="lang-es">Aprende a entrenar: Guía técnica</span>
-        <span class="lang-en">Learn to train: Technical Guide</span>
-    </h2>
-    <div class="split-grid">
+    <h2 class="section-title">Aprende a entrenar: Guía técnica</h2>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: center; gap: 40px;">
         <div style="display: flex; justify-content: center;">
             <div class="video-vertical-wrapper">
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/_inj3S1tTDQ" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
-        <div class="content-card">
-            <h3 style="color: var(--brand-accent); text-transform: uppercase;">
-                <span class="lang-es">Optimización Biomecánica</span>
-                <span class="lang-en">Biomechanical Optimization</span>
-            </h3>
-            <p>
-                <span class="lang-es">Análisis detallado para maximizar el estímulo muscular y reducir el riesgo de lesiones mediante técnica impecable.</span>
-                <span class="lang-en">Detailed analysis to maximize muscle stimulus and reduce injury risk through flawless technique.</span>
-            </p>
+        <div class="card" style="background: none; border: none; padding: 0;">
+            <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Optimización del Movimiento</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 20px;">Análisis visual avanzado para perfeccionar tu ejecución. Maximizamos el reclutamiento muscular reduciendo el riesgo de lesión.</p>
+            <ul style="color: var(--brand-light); list-style: none; padding: 0; line-height: 2;">
+                <li><i class="fas fa-bullseye" style="color: var(--brand-accent);"></i> Precisión en la trayectoria de carga.</li>
+                <li><i class="fas fa-bullseye" style="color: var(--brand-accent);"></i> Estabilización articular consciente.</li>
+                <li><i class="fas fa-bullseye" style="color: var(--brand-accent);"></i> Máxima eficiencia biomecánica.</li>
+            </ul>
         </div>
     </div>
 
-    <h2 class="section-title">
-        <span class="lang-es">Historias de Éxito</span>
-        <span class="lang-en">Success Stories</span>
-    </h2>
+    <h2 class="section-title">Historias de Éxito</h2>
     <div class="testimonial-grid">
         <div class="testimonial-card">
-            <div class="test-image-container"><img src="Testimoniocarrie.png" class="test-image"></div>
-            <div class="test-content">
-                <span class="lang-es">"Aumenté masa muscular y disminuí grasa. De los mejores cambios en mi rendimiento."</span>
-                <span class="lang-en">"I increased muscle mass and decreased fat. One of the best changes in my performance."</span>
-            </div>
+            <div class="test-image-container"><img src="Testimoniocarrie.png" class="test-image" alt="Carrie Durán"></div>
+            <div class="test-content">"Aumenté masa muscular y disminuí grasa. De los mejores cambios que he sentido en mi rendimiento."</div>
             <div class="test-footer">Carrie Durán, 29</div>
         </div>
         <div class="testimonial-card">
-            <div class="test-image-container"><img src="Testimoniogaby.png" class="test-image"></div>
-            <div class="test-content">
-                <span class="lang-es">"Resultados óptimos gracias a su dedicación y paciencia durante mi proceso."</span>
-                <span class="lang-en">"Optimal results thanks to his dedication and patience during my process."</span>
-            </div>
+            <div class="test-image-container"><img src="Testimoniogaby.png" class="test-image" alt="Gabriela Espinosa"></div>
+            <div class="test-content">"Resultados óptimos en poco tiempo gracias a su dedicación y paciencia durante mi proceso."</div>
             <div class="test-footer">Gabriela Espinosa, 21</div>
         </div>
         <div class="testimonial-card">
-            <div class="test-image-container"><img src="Testimoniomartin.png" class="test-image"></div>
-            <div class="test-content">
-                <span class="lang-es">"Explica la biomecánica detrás de cada ejercicio de forma impecable."</span>
-                <span class="lang-en">"Explains the biomechanics behind every exercise flawlessly."</span>
-            </div>
+            <div class="test-image-container"><img src="Testimoniomartin.png" class="test-image" alt="José Martín Fernandez"></div>
+            <div class="test-content">"Excelente entrenador. Explica la biomecánica detrás de cada ejercicio de forma impecable."</div>
             <div class="test-footer">José Martín Fernandez, 23</div>
         </div>
     </div>
 
-    <section id="booking" style="margin-top: 80px; text-align: center;">
-        <h2 class="section-title" style="text-align: left;">Book a Consultation</h2>
-        <div class="calendly-inline-widget" data-url="https://calendly.com/contact-kalebvelandos/30min" style="min-width:320px;height:700px;"></div>
+    <h2 class="section-title">Featured Podcast Episode</h2>
+    <div class="podcast-section">
+        <div class="video-container-horizontal">
+            <iframe src="https://www.youtube.com/embed/QG_up-SHCVA" title="¡Vive Más y Mejor!" allowfullscreen></iframe>
+        </div>
+        <h3 style="color: var(--brand-accent); text-transform: uppercase;">¡Vive Más y Mejor!</h3>
+        <p>Exploramos cómo el entrenamiento de fuerza añade años de vitalidad y previene enfermedades crónicas.</p>
+    </div>
+
+    <section id="booking" style="margin-top: 80px;">
+        <h2 class="section-title">Book a Discovery Call</h2>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/contact-kalebvelandos/30min" style="min-width:320px;height:750px;"></div>
         <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     </section>
 
@@ -174,8 +184,8 @@
 
 <div class="footer">
     © 2026 Kaleb Velandos | contact@kalebvelandos.fit <br>
-    <span class="lang-es">Ciencia del Movimiento y Rendimiento Basado en Evidencia.</span>
-    <span class="lang-en">Movement Science & Evidence-Based Performance.</span>
+    Movement Science & Evidence-Based Performance.
 </div>
 
-<script>
+</body>
+</html>
