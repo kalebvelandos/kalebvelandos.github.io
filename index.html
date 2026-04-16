@@ -51,11 +51,30 @@
         .test-content { padding: 25px; font-size: 0.95rem; color: var(--white); flex-grow: 1; }
         .test-footer { background: var(--brand-medium); padding: 15px 25px; color: var(--white); font-weight: bold; font-style: italic; }
 
-        .media-card { 
-            background: linear-gradient(rgba(27, 78, 81, 0.9), rgba(27, 78, 81, 0.9)), url('podcastcaptura.png');
-            background-size: cover; background-position: center;
-            padding: 60px 40px; border-radius: 15px; border: 1px solid var(--border-color);
-            display: flex; flex-direction: column; align-items: center; text-align: center;
+        /* ESTILO PODCAST HORIZONTAL */
+        .podcast-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+        .video-container-horizontal {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #000;
+            margin-bottom: 30px;
+        }
+        .video-container-horizontal iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .btn { background: var(--brand-accent); color: var(--brand-dark); padding: 16px 35px; text-decoration: none; border-radius: 50px; font-weight: 700; display: inline-block; text-transform: uppercase; font-size: 0.9rem; margin-top: 15px; transition: 0.3s; border: none; cursor: pointer; }
@@ -106,28 +125,31 @@
     <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: center; gap: 40px;">
         <div style="display: flex; justify-content: center;">
             <div style="width: 100%; max-width: 280px; border-radius: 20px; overflow: hidden; border: 2px solid var(--brand-accent); box-shadow: 0 0 20px rgba(140, 206, 177, 0.2); aspect-ratio: 9/16;">
-                <iframe 
-                    width="100%" 
-                    height="100%" 
-                    src="https://www.youtube.com/embed/Z_9koe5MLJU" 
-                    title="Fuerza Longeva Testimonios" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen 
-                    style="border: none;">
-                </iframe>
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Z_9koe5MLJU" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
         <div class="card" style="background: none; border: none; padding: 0;">
             <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Ciencia aplicada a la madurez</h3>
-            <p style="font-size: 1.1rem; margin-bottom: 20px;">
-                Nuestro programa especializado utiliza el entrenamiento de resistencia para revertir la pérdida de masa muscular y mejorar la calidad de vida.
-            </p>
+            <p style="font-size: 1.1rem; margin-bottom: 20px;">Nuestro programa especializado utiliza el entrenamiento de resistencia para revertir la pérdida de masa muscular y mejorar la calidad de vida.</p>
             <ul style="color: var(--brand-light); list-style: none; padding: 0; line-height: 2;">
                 <li><i class="fas fa-check-circle" style="color: var(--brand-accent);"></i> Combate directo a la sarcopenia.</li>
                 <li><i class="fas fa-check-circle" style="color: var(--brand-accent);"></i> Mejora drástica de la movilidad funcional.</li>
-                <li><i class="fas fa-check-circle" style="color: var(--brand-accent);"></i> Supervisión técnica por especialistas en biomecánica.</li>
+                <li><i class="fas fa-check-circle" style="color: var(--brand-accent);"></i> Supervisión técnica por especialistas.</li>
             </ul>
+        </div>
+    </div>
+
+    <h2 class="section-title">Featured Podcast Episode</h2>
+    <div class="podcast-section">
+        <div class="video-container-horizontal">
+            <iframe src="https://www.youtube.com/embed/QG_up-SHCVA" title="¡Vive Más y Mejor! Impacto del Entrenamiento con Pesas" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <h3 style="color: var(--brand-accent); text-transform: uppercase;">¡Vive Más y Mejor! El Impacto del Entrenamiento con Pesas</h3>
+        <p>Exploramos cómo el entrenamiento de fuerza añade años de vitalidad, mejora la salud ósea y previene enfermedades crónicas. Un episodio clave para maximizar tu bienestar a cualquier edad.</p>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <span style="background: var(--brand-medium); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;">Longevidad</span>
+            <span style="background: var(--brand-medium); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;">Salud Ósea</span>
+            <span style="background: var(--brand-medium); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;">Prevención</span>
         </div>
     </div>
 
@@ -135,26 +157,19 @@
     <div class="testimonial-grid">
         <div class="testimonial-card">
             <div class="test-image-container"><img src="testimonio-carrie.png" class="test-image"></div>
-            <div class="test-content">"Aumenté bastante masa muscular en glúteo, bíceps y pantorrilla disminuyendo mucha grasa en piernas. De los mejores cambios que he sentido."</div>
+            <div class="test-content">"Aumenté masa muscular y disminuí grasa. De los mejores cambios que he sentido en mi rendimiento."</div>
             <div class="test-footer">Carrie Durán, 29</div>
         </div>
         <div class="testimonial-card">
             <div class="test-image-container"><img src="testimonio-gabriela.png" class="test-image"></div>
-            <div class="test-content">"Durante estos 3 años he visto resultados óptimos en poco tiempo. Gran parte se lo debo a su dedicación y paciencia."</div>
+            <div class="test-content">"Resultados óptimos en poco tiempo gracias a su dedicación y paciencia durante mi proceso."</div>
             <div class="test-footer">Gabriela Espinosa, 21</div>
         </div>
         <div class="testimonial-card">
             <div class="test-image-container"><img src="testimonio-jose.png" class="test-image"></div>
-            <div class="test-content">"Excelente entrenador dedicado. Saca el tiempo para explicar la biomecánica de cada ejercicio y el enfoque de la rutina."</div>
+            <div class="test-content">"Excelente entrenador. Explica la biomecánica detrás de cada ejercicio de forma impecable."</div>
             <div class="test-footer">José Martín Fernandez, 23</div>
         </div>
-    </div>
-
-    <h2 class="section-title">Educational Insights</h2>
-    <div class="media-card">
-        <h3 style="color: var(--brand-accent); text-transform: uppercase;">Exercise & Menopause</h3>
-        <p style="max-width: 600px;">Escucha mi análisis técnico sobre fisiología y optimización del rendimiento durante la menopausia en Spotify.</p>
-        <a href="TU_LINK_DE_SPOTIFY_AQUI" target="_blank" class="btn" style="background:#1DB954; color:white;"><i class="fab fa-spotify"></i> Listen on Spotify</a>
     </div>
 
     <section id="booking" style="margin-top: 80px;">
