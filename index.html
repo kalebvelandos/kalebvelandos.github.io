@@ -51,7 +51,7 @@
         .test-content { padding: 25px; font-size: 0.95rem; color: var(--white); flex-grow: 1; }
         .test-footer { background: var(--brand-medium); padding: 15px 25px; color: var(--white); font-weight: bold; font-style: italic; }
 
-        /* ESTILO PODCAST HORIZONTAL */
+        /* ESTILO VIDEOS HORIZONTALES */
         .podcast-section {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -76,6 +76,9 @@
             height: 100%;
             border: none;
         }
+
+        .video-tags { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 15px; }
+        .tag { background: var(--brand-medium); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; }
 
         .btn { background: var(--brand-accent); color: var(--brand-dark); padding: 16px 35px; text-decoration: none; border-radius: 50px; font-weight: 700; display: inline-block; text-transform: uppercase; font-size: 0.9rem; margin-top: 15px; transition: 0.3s; border: none; cursor: pointer; }
         .btn:hover { filter: brightness(1.1); box-shadow: 0 0 20px rgba(140, 206, 177, 0.3); }
@@ -142,14 +145,28 @@
     <h2 class="section-title">Featured Podcast Episode</h2>
     <div class="podcast-section">
         <div class="video-container-horizontal">
-            <iframe src="https://www.youtube.com/embed/QG_up-SHCVA" title="¡Vive Más y Mejor! Impacto del Entrenamiento con Pesas" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/QG_up-SHCVA" title="¡Vive Más y Mejor! Impacto del Entrenamiento con Pesas" allowfullscreen></iframe>
         </div>
         <h3 style="color: var(--brand-accent); text-transform: uppercase;">¡Vive Más y Mejor! El Impacto del Entrenamiento con Pesas</h3>
-        <p>Exploramos cómo el entrenamiento de fuerza añade años de vitalidad, mejora la salud ósea y previene enfermedades crónicas. Un episodio clave para maximizar tu bienestar a cualquier edad.</p>
-        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-            <span style="background: var(--brand-medium); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;">Longevidad</span>
-            <span style="background: var(--brand-medium); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;">Salud Ósea</span>
-            <span style="background: var(--brand-medium); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;">Prevención</span>
+        <p>Exploramos cómo el entrenamiento de fuerza añade años de vitalidad, mejora la salud ósea y previene enfermedades crónicas.</p>
+        <div class="video-tags">
+            <span class="tag">Longevidad</span>
+            <span class="tag">Salud Ósea</span>
+            <span class="tag">Prevención</span>
+        </div>
+    </div>
+
+    <h2 class="section-title">Aprende a entrenar: Guía técnica</h2>
+    <div class="podcast-section">
+        <div class="video-container-horizontal">
+            <iframe src="https://www.youtube.com/embed/_inj3S1tTDQ" title="Análisis de Técnica Superior" allowfullscreen></iframe>
+        </div>
+        <h3 style="color: var(--brand-accent); text-transform: uppercase;">Optimización del Movimiento</h3>
+        <p>Perfecciona tu ejecución con este análisis visual avanzado. Desglosamos la biomecánica para asegurar eficiencia y seguridad.</p>
+        <div class="video-tags">
+            <span class="tag">Biomecánica</span>
+            <span class="tag">Técnica Correcta</span>
+            <span class="tag">Performance</span>
         </div>
     </div>
 
