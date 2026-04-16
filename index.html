@@ -21,39 +21,21 @@
         body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--brand-dark); color: var(--white); line-height: 1.6; scroll-behavior: smooth; }
         .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
         
-        /* LÓGICA DE IDIOMAS */
-        .lang-en { display: none; } /* Por defecto ocultamos inglés */
-
+        /* SELECTOR DE IDIOMA */
+        .lang-en { display: none; }
         .language-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: var(--brand-medium);
-            padding: 5px;
-            border-radius: 30px;
-            display: flex;
-            gap: 5px;
-            border: 1px solid var(--brand-accent);
+            position: fixed; top: 20px; right: 20px; z-index: 1000;
+            background: var(--brand-medium); padding: 5px; border-radius: 30px;
+            display: flex; gap: 5px; border: 1px solid var(--brand-accent);
         }
-
         .lang-btn {
-            background: none;
-            border: none;
-            color: var(--white);
-            padding: 8px 15px;
-            cursor: pointer;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.8rem;
-            transition: 0.3s;
+            background: none; border: none; color: var(--white); padding: 8px 15px;
+            cursor: pointer; border-radius: 20px; font-weight: bold; font-size: 0.8rem; transition: 0.3s;
         }
-
         .lang-btn.active { background: var(--brand-accent); color: var(--brand-dark); }
 
         header { 
-            height: 75vh; 
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; 
+            height: 75vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; 
             background: linear-gradient(180deg, var(--brand-dark) 0%, rgba(140, 206, 177, 0.1) 100%); 
             border-bottom: 2px solid var(--border-color);
         }
@@ -67,12 +49,12 @@
 
         .section-title { border-left: 4px solid var(--brand-accent); padding-left: 20px; margin: 60px 0 30px; text-transform: uppercase; letter-spacing: 2px; font-size: 1.8rem; color: var(--brand-light); }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .card { background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid var(--border-color); transition: 0.3s; }
-        .card h3 { color: var(--brand-accent); margin-top: 0; text-transform: uppercase; font-size: 1.2rem; }
+        /* GRID PARA VIDEOS VERTICALES */
+        .split-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: center; gap: 40px; margin-bottom: 60px; }
+        .video-vertical-wrapper { width: 100%; max-width: 280px; border-radius: 20px; overflow: hidden; border: 2px solid var(--brand-accent); box-shadow: 0 0 20px rgba(140, 206, 177, 0.2); aspect-ratio: 9/16; }
+        .content-card { background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid var(--border-color); }
 
-        .video-vertical-wrapper { width: 100%; max-width: 280px; border-radius: 20px; overflow: hidden; border: 2px solid var(--brand-accent); aspect-ratio: 9/16; }
-
+        /* TESTIMONIOS */
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .testimonial-card { background: rgba(0,0,0,0.2); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); display: flex; flex-direction: column; }
         .test-image-container { width: 100%; height: 280px; overflow: hidden; }
@@ -80,7 +62,7 @@
         .test-content { padding: 25px; font-size: 0.95rem; flex-grow: 1; }
         .test-footer { background: var(--brand-medium); padding: 15px 25px; font-weight: bold; font-style: italic; }
 
-        .btn { background: var(--brand-accent); color: var(--brand-dark); padding: 16px 35px; text-decoration: none; border-radius: 50px; font-weight: 700; display: inline-block; text-transform: uppercase; font-size: 0.9rem; margin-top: 15px; transition: 0.3s; border: none; cursor: pointer; }
+        .btn { background: var(--brand-accent); color: var(--brand-dark); padding: 16px 35px; text-decoration: none; border-radius: 50px; font-weight: 700; display: inline-block; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; border: none; cursor: pointer; }
         .footer { text-align: center; padding: 60px; color: var(--brand-light); font-size: 0.8rem; border-top: 1px solid var(--border-color); margin-top: 100px; }
     </style>
 </head>
@@ -95,21 +77,14 @@
     <img src="logo.jpg.png" alt="Logo" class="logo-img">
     <h1 class="hero-title">Kaleb Velandos</h1>
     <p class="hero-subtitle">
-        <span class="lang-es">Ciencia del Movimiento | Prevención de Lesiones | Rendimiento en Combate</span>
-        <span class="lang-en">Movement Science | Injury Prevention | Combat Performance</span>
+        <span class="lang-es">Ciencia del Movimiento | Rendimiento en Combate</span>
+        <span class="lang-en">Movement Science | Combat Performance</span>
     </p>
-    
     <div class="social-bar">
         <a href="https://www.instagram.com/kalebvelandos/" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="https://youtube.com/@kalebvelandos" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="https://cr.linkedin.com/in/kaleb-velandos-78b0b4361/" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="mailto:contact@kalebvelandos.fit"><i class="fas fa-envelope"></i></a>
     </div>
-
-    <a href="#booking" class="btn" style="margin-top: 40px;">
-        <span class="lang-es">Reservar Consulta</span>
-        <span class="lang-en">Book a Consultation</span>
-    </a>
 </header>
 
 <div class="container">
@@ -118,31 +93,21 @@
         <span class="lang-es">Experiencia Fuerza Longeva™</span>
         <span class="lang-en">Fuerza Longeva™ Experience</span>
     </h2>
-    <div class="grid" style="align-items: center; gap: 40px;">
+    <div class="split-grid">
         <div style="display: flex; justify-content: center;">
             <div class="video-vertical-wrapper">
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Z_9koe5MLJU" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
-        <div class="card" style="background: none; border: none; padding: 0;">
-            <h3 style="font-size: 1.8rem;">
+        <div class="content-card">
+            <h3 style="color: var(--brand-accent); text-transform: uppercase;">
                 <span class="lang-es">Ciencia aplicada a la madurez</span>
-                <span class="lang-en">Science applied to maturity</span>
+                <span class="lang-en">Science applied to longevity</span>
             </h3>
             <p>
-                <span class="lang-es">Nuestro programa especializado utiliza el entrenamiento de resistencia para revertir la pérdida de masa muscular y mejorar la calidad de vida.</span>
-                <span class="lang-en">Our specialized program uses resistance training to reverse muscle mass loss and improve quality of life.</span>
+                <span class="lang-es">Protocolos diseñados para revertir la pérdida de masa muscular y mejorar la independencia física en adultos mayores.</span>
+                <span class="lang-en">Protocols designed to reverse muscle loss and improve physical independence in older adults.</span>
             </p>
-            <ul style="color: var(--brand-light); list-style: none; padding: 0; line-height: 2;">
-                <li><i class="fas fa-check-circle" style="color: var(--brand-accent);"></i> 
-                    <span class="lang-es">Combate directo a la sarcopenia.</span>
-                    <span class="lang-en">Direct combat against sarcopenia.</span>
-                </li>
-                <li><i class="fas fa-check-circle" style="color: var(--brand-accent);"></i> 
-                    <span class="lang-es">Mejora drástica de la movilidad funcional.</span>
-                    <span class="lang-en">Drastic improvement in functional mobility.</span>
-                </li>
-            </ul>
         </div>
     </div>
 
@@ -150,20 +115,20 @@
         <span class="lang-es">Aprende a entrenar: Guía técnica</span>
         <span class="lang-en">Learn to train: Technical Guide</span>
     </h2>
-    <div class="grid" style="align-items: center; gap: 40px;">
+    <div class="split-grid">
         <div style="display: flex; justify-content: center;">
             <div class="video-vertical-wrapper">
                 <iframe width="100%" height="100%" src="https://www.youtube.com/embed/_inj3S1tTDQ" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
-        <div class="card" style="background: none; border: none; padding: 0;">
-            <h3 style="font-size: 1.8rem;">
-                <span class="lang-es">Optimización del Movimiento</span>
-                <span class="lang-en">Movement Optimization</span>
+        <div class="content-card">
+            <h3 style="color: var(--brand-accent); text-transform: uppercase;">
+                <span class="lang-es">Optimización Biomecánica</span>
+                <span class="lang-en">Biomechanical Optimization</span>
             </h3>
             <p>
-                <span class="lang-es">Análisis visual avanzado para perfeccionar tu ejecución. Maximizamos el reclutamiento muscular reduciendo el riesgo de lesión.</span>
-                <span class="lang-en">Advanced visual analysis to perfect your execution. We maximize muscle recruitment while reducing injury risk.</span>
+                <span class="lang-es">Análisis detallado para maximizar el estímulo muscular y reducir el riesgo de lesiones mediante técnica impecable.</span>
+                <span class="lang-en">Detailed analysis to maximize muscle stimulus and reduce injury risk through flawless technique.</span>
             </p>
         </div>
     </div>
@@ -176,27 +141,32 @@
         <div class="testimonial-card">
             <div class="test-image-container"><img src="Testimoniocarrie.png" class="test-image"></div>
             <div class="test-content">
-                <span class="lang-es">"Aumenté masa muscular y disminuí grasa. De los mejores cambios que he sentido."</span>
-                <span class="lang-en">"I increased muscle mass and decreased fat. One of the best changes I've felt."</span>
+                <span class="lang-es">"Aumenté masa muscular y disminuí grasa. De los mejores cambios en mi rendimiento."</span>
+                <span class="lang-en">"I increased muscle mass and decreased fat. One of the best changes in my performance."</span>
             </div>
             <div class="test-footer">Carrie Durán, 29</div>
         </div>
         <div class="testimonial-card">
             <div class="test-image-container"><img src="Testimoniogaby.png" class="test-image"></div>
             <div class="test-content">
-                <span class="lang-es">"Resultados óptimos en poco tiempo gracias a su dedicación y paciencia."</span>
-                <span class="lang-en">"Optimal results in a short time thanks to his dedication and patience."</span>
+                <span class="lang-es">"Resultados óptimos gracias a su dedicación y paciencia durante mi proceso."</span>
+                <span class="lang-en">"Optimal results thanks to his dedication and patience during my process."</span>
             </div>
             <div class="test-footer">Gabriela Espinosa, 21</div>
         </div>
+        <div class="testimonial-card">
+            <div class="test-image-container"><img src="Testimoniomartin.png" class="test-image"></div>
+            <div class="test-content">
+                <span class="lang-es">"Explica la biomecánica detrás de cada ejercicio de forma impecable."</span>
+                <span class="lang-en">"Explains the biomechanics behind every exercise flawlessly."</span>
+            </div>
+            <div class="test-footer">José Martín Fernandez, 23</div>
+        </div>
     </div>
 
-    <section id="booking" style="margin-top: 80px;">
-        <h2 class="section-title">
-            <span class="lang-es">Reserva una llamada de descubrimiento</span>
-            <span class="lang-en">Book a Discovery Call</span>
-        </h2>
-        <div class="calendly-inline-widget" data-url="https://calendly.com/contact-kalebvelandos/30min" style="min-width:320px;height:750px;"></div>
+    <section id="booking" style="margin-top: 80px; text-align: center;">
+        <h2 class="section-title" style="text-align: left;">Book a Consultation</h2>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/contact-kalebvelandos/30min" style="min-width:320px;height:700px;"></div>
         <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     </section>
 
@@ -209,34 +179,3 @@
 </div>
 
 <script>
-    function setLanguage(lang) {
-        // Guardar preferencia
-        localStorage.setItem('preferredLang', lang);
-        
-        // Actualizar visualización
-        const esElements = document.querySelectorAll('.lang-es');
-        const enElements = document.querySelectorAll('.lang-en');
-        const btns = document.querySelectorAll('.lang-btn');
-
-        if (lang === 'es') {
-            esElements.forEach(el => el.style.display = 'inline-block');
-            enElements.forEach(el => el.style.display = 'none');
-            btns[0].classList.add('active');
-            btns[1].classList.remove('active');
-        } else {
-            esElements.forEach(el => el.style.display = 'none');
-            enElements.forEach(el => el.style.display = 'inline-block');
-            btns[0].classList.remove('active');
-            btns[1].classList.add('active');
-        }
-    }
-
-    // Cargar preferencia al iniciar
-    window.onload = () => {
-        const savedLang = localStorage.getItem('preferredLang') || 'es';
-        setLanguage(savedLang);
-    };
-</script>
-
-</body>
-</html>
