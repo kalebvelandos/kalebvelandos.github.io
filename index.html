@@ -44,29 +44,38 @@
         .card:hover { border-color: var(--brand-accent); background: rgba(109, 148, 143, 0.3); }
         .card h3 { color: var(--brand-accent); margin-top: 0; text-transform: uppercase; font-size: 1.2rem; }
 
-        .video-content-block {
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .testimonial-card { background: rgba(0,0,0,0.2); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); display: flex; flex-direction: column; }
+        .test-image-container { width: 100%; height: 260px; overflow: hidden; }
+        .test-image { width: 100%; height: 100%; object-fit: cover; }
+        .test-content { padding: 25px; font-size: 0.95rem; color: var(--white); flex-grow: 1; }
+        .test-footer { background: var(--brand-medium); padding: 15px 25px; color: var(--white); font-weight: bold; font-style: italic; }
+
+        /* ESTILO PODCAST HORIZONTAL */
+        .podcast-section {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 15px;
             padding: 40px;
-            margin-bottom: 40px;
+            margin-top: 40px;
         }
         .video-container-horizontal {
             position: relative;
-            padding-bottom: 56.25%; 
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
             overflow: hidden;
             border-radius: 10px;
             background: #000;
             margin-bottom: 30px;
-            border: 1px solid var(--border-color);
         }
         .video-container-horizontal iframe {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%; border: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
-        .video-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
-        .video-tags span { background: rgba(109, 148, 143, 0.4); color: var(--white); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; }
 
         .btn { background: var(--brand-accent); color: var(--brand-dark); padding: 16px 35px; text-decoration: none; border-radius: 50px; font-weight: 700; display: inline-block; text-transform: uppercase; font-size: 0.9rem; margin-top: 15px; transition: 0.3s; border: none; cursor: pointer; }
         .btn:hover { filter: brightness(1.1); box-shadow: 0 0 20px rgba(140, 206, 177, 0.3); }
@@ -87,25 +96,80 @@
         <a href="https://cr.linkedin.com/in/kaleb-velandos-78b0b4361/" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="mailto:contact@kalebvelandos.fit"><i class="fas fa-envelope"></i></a>
     </div>
+
     <a href="#booking" class="btn" style="margin-top: 40px;">Book a Consultation</a>
 </header>
 
 <div class="container">
 
-    <h2 class="section-title">Aprende a entrenar: Guía técnica</h2>
-    <div class="video-content-block">
+    <h2 class="section-title">Professional Focus</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Weight-Cut & Performance Nutrition</h3>
+            <p>Estrategias nutricionales para <strong>BJJ, Muay Thai y Boxeo</strong>. Gestión de peso y carga metabólica para atletas de combate.</p>
+            <a href="#booking" class="btn">Inquire</a>
+        </div>
+        <div class="card">
+            <h3>Injury Prevention</h3>
+            <p>Evaluaciones biomecánicas para construir un cuerpo atlético resiliente. Programación correctiva basada en ciencia del movimiento.</p>
+            <a href="#booking" class="btn">Inquire</a>
+        </div>
+        <div class="card">
+            <h3>Fuerza Longeva™</h3>
+            <p>Protocolos de entrenamiento de fuerza para adultos mayores, enfocados en densidad ósea e independencia física.</p>
+            <a href="#booking" class="btn">Learn More</a>
+        </div>
+    </div>
+
+    <h2 class="section-title">Fuerza Longeva™ Experience</h2>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: center; gap: 40px;">
+        <div style="display: flex; justify-content: center;">
+            <div style="width: 100%; max-width: 280px; border-radius: 20px; overflow: hidden; border: 2px solid var(--brand-accent); box-shadow: 0 0 20px rgba(140, 206, 177, 0.2); aspect-ratio: 9/16;">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Z_9koe5MLJU" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="card" style="background: none; border: none; padding: 0;">
+            <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Ciencia aplicada a la madurez</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 20px;">Nuestro programa especializado utiliza el entrenamiento de resistencia para revertir la pérdida de masa muscular y mejorar la calidad de vida.</p>
+            <ul style="color: var(--brand-light); list-style: none; padding: 0; line-height: 2;">
+                <li><i class="fas fa-check-circle" style="color: var(--brand-accent);"></i> Combate directo a la sarcopenia.</li>
+                <li><i class="fas fa-check-circle" style="color: var(--brand-accent);"></i> Mejora drástica de la movilidad funcional.</li>
+                <li><i class="fas fa-check-circle" style="color: var(--brand-accent);"></i> Supervisión técnica por especialistas.</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2 class="section-title">Featured Podcast Episode</h2>
+    <div class="podcast-section">
         <div class="video-container-horizontal">
-            <iframe src="https://www.youtube.com/embed/_inj3S1tTDQ" title="Guía Técnica Superior" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/QG_up-SHCVA" title="¡Vive Más y Mejor! Impacto del Entrenamiento con Pesas" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <h3 style="color: var(--brand-accent); text-transform: uppercase;">Optimización del Movimiento</h3>
-        <p>Perfecciona tu ejecución con este análisis visual avanzado. Desglosamos cada fase del movimiento para asegurar la máxima eficiencia biomecánica y seguridad en cada repetición.</p>
-        <div class="video-tags">
-            <span>Alta Calidad</span>
-            <span>Análisis Biomecánico</span>
-            <span>Guía Técnica</span>
-            <span>Performance</span>
+        <h3 style="color: var(--brand-accent); text-transform: uppercase;">¡Vive Más y Mejor! El Impacto del Entrenamiento con Pesas</h3>
+        <p>Exploramos cómo el entrenamiento de fuerza añade años de vitalidad, mejora la salud ósea y previene enfermedades crónicas. Un episodio clave para maximizar tu bienestar a cualquier edad.</p>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <span style="background: var(--brand-medium); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;">Longevidad</span>
+            <span style="background: var(--brand-medium); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;">Salud Ósea</span>
+            <span style="background: var(--brand-medium); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem;">Prevención</span>
         </div>
-        <a href="https://youtube.com/@kalebvelandos" target="_blank" class="btn"><i class="fab fa-youtube"></i> Explorar Canal</a>
+    </div>
+
+    <h2 class="section-title">Success Stories</h2>
+    <div class="testimonial-grid">
+        <div class="testimonial-card">
+            <div class="test-image-container"><img src="testimonio-carrie.png" class="test-image"></div>
+            <div class="test-content">"Aumenté masa muscular y disminuí grasa. De los mejores cambios que he sentido en mi rendimiento."</div>
+            <div class="test-footer">Carrie Durán, 29</div>
+        </div>
+        <div class="testimonial-card">
+            <div class="test-image-container"><img src="testimonio-gabriela.png" class="test-image"></div>
+            <div class="test-content">"Resultados óptimos en poco tiempo gracias a su dedicación y paciencia durante mi proceso."</div>
+            <div class="test-footer">Gabriela Espinosa, 21</div>
+        </div>
+        <div class="testimonial-card">
+            <div class="test-image-container"><img src="testimonio-jose.png" class="test-image"></div>
+            <div class="test-content">"Excelente entrenador. Explica la biomecánica detrás de cada ejercicio de forma impecable."</div>
+            <div class="test-footer">José Martín Fernandez, 23</div>
+        </div>
     </div>
 
     <section id="booking" style="margin-top: 80px;">
